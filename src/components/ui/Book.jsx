@@ -24,6 +24,13 @@ export default function Book({ book }) {
     }
   },[book.url]);
 
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    }
+  },[])
+
   return (
     <div className="book">
       {!img ? (
